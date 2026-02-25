@@ -39,8 +39,13 @@ for dir in (
 for file in Path().glob("tests/speedcenter.exec.velcom.yaml"):
     nag("removed file", file)
 
-for file in Path().glob("tests/bench-radar/*"):
-    nag("removed dir", file)
+for dir in (
+    "tests/bench-radar",
+    "tests/compiler/foreign",
+):
+    path = Path(dir)
+    if path.exists():
+        nag("removed dir", path)
 
 for dir in (
     "tests/bench/cbv",
