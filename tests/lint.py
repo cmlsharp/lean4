@@ -24,6 +24,7 @@ for dir in (
     "tests/compiler",
     "tests/lean",
     "tests/lean/docparse",
+    "tests/lean/interactive",
     "tests/lean/run",
 ):
     for glob in (
@@ -74,6 +75,7 @@ for dir in (
     "tests/elab",
     "tests/elab_bench",
     "tests/elab_fail",
+    "tests/interactive",
 ):
     for glob in (
         f"{dir}/*.no_interpreter",

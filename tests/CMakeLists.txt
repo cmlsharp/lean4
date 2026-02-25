@@ -363,6 +363,7 @@ add_test_pile(docparse *.txt)
 add_test_pile(elab *.lean)
 add_test_pile(elab_bench *.lean BENCH PART2)
 add_test_pile(elab_fail *.lean)
+add_test_pile(interactive *.lean)
 add_test_pile(misc *.sh)
 add_test_pile(misc_bench *.sh BENCH PART2)
 
