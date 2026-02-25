@@ -23,6 +23,7 @@ def nag(reason: str, path: Path, fatal: bool = True) -> None:
 for dir in (
     "tests/compiler",
     "tests/lean",
+    "tests/lean/docparse",
     "tests/lean/run",
 ):
     for glob in (
@@ -31,6 +32,8 @@ for dir in (
         f"{dir}/*.expected.ret",
     ):
         for file in Path().glob(glob):
+            if file.name == "run.lean":
+                continue
             nag("deprecated dir", file, fatal=False)
 
 
@@ -67,6 +70,7 @@ for dir in (
     "doc/examples",
     "tests/compile",
     "tests/compile_bench",
+    "tests/docparse",
     "tests/elab",
     "tests/elab_bench",
     "tests/elab_fail",

@@ -116,6 +116,10 @@ function(add_test_pile DIR GLOB)
     # Path relative to pile directory
     cmake_path(RELATIVE_PATH FILE_ABS BASE_DIRECTORY "${DIR_ABS}" OUTPUT_VARIABLE FILE_NAME)
 
+    if(FILE_NAME MATCHES "^run_(test|bench)")
+      continue()
+    endif()
+
     if(RUN_TEST_EXISTS AND NOT EXISTS "${FILE_ABS}.no_test")
       add_test(NAME "${FILE}" WORKING_DIRECTORY "${DIR_ABS}" COMMAND "${RUN_TEST}" "${FILE_NAME}")
     endif()
@@ -355,6 +359,7 @@ endforeach(T)
 add_test_pile(../doc/examples *.lean)
 add_test_pile(compile *.lean BENCH PART2)
 add_test_pile(compile_bench *.lean BENCH PART2)
+add_test_pile(docparse *.txt)
 add_test_pile(elab *.lean)
 add_test_pile(elab_bench *.lean BENCH PART2)
 add_test_pile(elab_fail *.lean)
